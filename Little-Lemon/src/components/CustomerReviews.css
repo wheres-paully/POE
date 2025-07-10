@@ -1,0 +1,47 @@
+.reviews-section {
+    background-color: #fdf8e1;
+    padding: 3rem 1rem;
+    text-align: center;
+  }
+  
+  .reviews-heading {
+    font-family: 'Markazi Text', serif;
+    color: #495E57;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .review-cards {
+    display: grid;
+    gap: 2rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  
+  .review-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    text-align: left;
+  }
+  
+  .review-title {
+    font-size: 1.2rem;
+    color: #f4ce14;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .review-content {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .review-author {
+    font-size: 0.9rem;
+    color: #495E57;
+    font-style: italic;
+  }
+  

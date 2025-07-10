@@ -1,0 +1,108 @@
+.ordering-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #fdfaf2;
+  }
+  
+  .menu-display, .order-summary {
+    flex: 1 1 45%;
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+  }
+  
+  .menu-section h2 {
+    color: #495E57;
+    margin-top: 1.5rem;
+  }
+  
+  .menu-item {
+    border-bottom: 1px solid #eee;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .menu-item p {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .menu-item button {
+    background-color: #f4ce14;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .order-summary h2 {
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+  }
+  
+  .cart-total {
+    margin-top: 1rem;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+  }
+  
+  .checkout-button {
+    margin-top: 0.5rem;
+    background-color: #495E57;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .popup {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .popup p {
+    font-size: 1.2rem;
+    color: #495E57;
+    margin-bottom: 1rem;
+  }
+  
+  .popup button {
+    background-color: #f4ce14;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+  }

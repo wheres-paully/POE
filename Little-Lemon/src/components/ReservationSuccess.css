@@ -1,0 +1,12 @@
+.confirmation-text {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    font-family: 'Markazi Text', serif;
+    color: #f4ce14
+  }
+
+  reservation-form h2 {
+    color: #f4ce14;
+    font-family: 'Markazi Text', serif;
+  }

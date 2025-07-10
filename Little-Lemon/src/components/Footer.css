@@ -1,0 +1,71 @@
+.footer-rights {
+    width: 100%;
+    text-align: right;
+    margin-top: 30px;
+    font-size: 0.8rem;
+    color: #666;
+  }
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .footer-column li {
+    margin-bottom: 0.5rem;
+  }
+  .footer-columns {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .footer-column {
+    flex: 1;
+    min-width: 180px;
+  }
+  
+  .footer {
+    background-color: #ffffff;
+    padding: 2rem;
+    font-family: 'Markazi Text', serif;
+    color: #495E57;
+    border: 4px solid #495E57;
+  }
+  
+  .centered-logo-group {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+  
+  .footer-logo img {
+    max-height: 1000rex;
+    align-items: center;
+    justify-content: center;  
+    height: auto;
+    display: block;
+  }
+  .horizontal-group {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+  
+  .inline-logo img {
+    max-width: 100px;
+    height: auto;
+  }
+  @media (max-width: 600px) {
+    .footer-columns {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .footer-column {
+      margin-bottom: 1.5rem;
+    }
+  }

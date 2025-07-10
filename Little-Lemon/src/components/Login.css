@@ -1,0 +1,58 @@
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .submit-button {
+    background-color: #495E57;
+  }
+  .forgot-password {
+    text-align: right;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .forgot-password a {
+    font-size: 0.95rem;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Markazi Text', serif;
+  }
+  
+  .forgot-password a:hover {
+    text-decoration: underline;
+    color: #f4ce14;
+  }
+ 
+  .reservation-form h2 {
+    color: #ffffff;
+  }
+  
+  @media (max-width: 600px) {
+    .reservation-form {
+      padding: 1.25rem;
+      max-width: 100%;
+    }
+  
+    .form-input {
+      font-size: 1rem;
+      padding: 0.65rem;
+    }
+  
+    .form-button {
+      font-size: 1rem;
+      padding: 0.65rem;
+      width: 100%;
+    }
+  
+    h2 {
+      font-size: 1.75rem;
+      text-align: center;
+      font-family: 'Markazi Text', serif;
+    }
+  
+    .forgot-password a {
+      font-size: 0.9rem;
+    }
+  }  
