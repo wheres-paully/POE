@@ -1,4 +1,3 @@
 ## Portfolio of Evidence
 
-### Here in is a Portfolio of Evidence to reflect the work capable by Paul Grobler
-
+### This Portfolio of Evidence demonstrates the skills and contributions of Paul Grobler
