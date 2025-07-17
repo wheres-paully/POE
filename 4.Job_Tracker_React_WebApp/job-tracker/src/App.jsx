@@ -3,6 +3,7 @@ import JobForm from './components/JobForm';
 import JobList from './components/JobList';
 import Filter from './components/Filter';
 import './style.css';
+import { exportJobsToCSV } from './utils/JobUtils';
 
 function App() {
   const [jobs, setJobs] = useState([]);
@@ -48,18 +49,30 @@ function App() {
       prev.map(job => job.id === id ? { ...job, status } : job)
     );
   };
-
-  // Filter
-  const filteredJobs = filter === "All" ? jobs : jobs.filter(job => job.status === filter);
+  // Update job notes
+  const updateNotes = (id, newNotes) => {
+    setJobs(prev =>
+      prev.map(job =>
+        job.id === id ? { ...job, notes: newNotes } : job
+      )
+    );
+  };
 
   // Sort filtered jobs
-  const sortedJobs = [...filteredJobs].sort((a, b) => {
+  const sortedJobs = [...jobs].sort((a, b) => {
     if (sortBy === "company") return a.company.localeCompare(b.company);
     if (sortBy === "date") return new Date(b.dateAdded) - new Date(a.dateAdded);
     return 0;
   });
 
+    // Search Bar
+    const [searchTerm, setSearchTerm] = useState("");
 
+    const filteredJobs = jobs.filter(job => 
+      job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      job.company.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  
   return (
     <div className="app">
       <h1>🎯 Job Tracker</h1>
@@ -68,6 +81,8 @@ function App() {
       <button onClick={() => setDarkMode(!darkMode)} style={{ marginBottom: '1rem' }}>
         {darkMode ? "🌞 Light Mode" : "🌙 Dark Mode"}
       </button>
+
+      <button onClick={() => exportJobsToCSV(jobs)}>📥 Export CSV</button>
 
       <JobForm addJob={addJob} />
       <Filter filter={filter} setFilter={setFilter} />
@@ -80,11 +95,19 @@ function App() {
           <option value="company">Company Name</option>
         </select>
       </div>
+    
+      <input
+        type="text"
+        placeholder="Search jobs..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
 
       <JobList
         jobs={sortedJobs}
         deleteJob={deleteJob}
         updateStatus={updateStatus}
+        updateNotes={updateNotes}
       />
     </div>
   );

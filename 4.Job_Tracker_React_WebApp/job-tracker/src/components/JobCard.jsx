@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 
-const JobCard = ({ job, deleteJob, updateStatus }) => {
-  const [notes, setNotes] = useState(job.notes || '');
-  const [isEditingNotes, setIsEditingNotes] = useState(false);
+function JobCard({ job, deleteJob, updateStatus, updateNotes }) {
+  const [editing, setEditing] = useState(false);
+  const [tempNotes, setTempNotes] = useState(job.notes || "");
 
-  const handleNotesChange = (e) => {
-    setNotes(e.target.value);
+  const handleSave = () => {
+    updateNotes(job.id, tempNotes);
+    setEditing(false);
   };
 
-  const handleNotesBlur = () => {
-    setIsEditingNotes(false);
-    // You might want to save the notes to your job data here
-    // updateJob(job.id, { ...job, notes });
+  const handleCancel = () => {
+    setTempNotes(job.notes || "");
+    setEditing(false);
   };
 
   return (
@@ -21,35 +21,29 @@ const JobCard = ({ job, deleteJob, updateStatus }) => {
       <p><strong>Status:</strong> {job.status}</p>
       <p><strong>Type:</strong> {job.type}</p>
 
-      {/* Updated Notes Section */}
-      <div className="notes-section">
-        <strong>Notes:</strong>
-        {isEditingNotes ? (
+      {/* Notes Section */}
+      {editing ? (
+        <>
+          <label><strong>Notes:</strong></label>
           <textarea
-            className="notes-textarea"
-            value={notes}
-            onChange={handleNotesChange}
-            onBlur={handleNotesBlur}
+            value={tempNotes}
+            onChange={(e) => setTempNotes(e.target.value)}
+            rows={4}
             autoFocus
-            placeholder="Add your notes here..."
           />
-        ) : (
-          <div 
-            className="notes-display"
-            onClick={() => setIsEditingNotes(true)}
-          >
-            {notes || 'Click to add notes...'}
+          <div style={{ marginTop: '0.5rem' }}>
+            <button onClick={handleSave}>💾 Save</button>
+            <button onClick={handleCancel} style={{ marginLeft: '0.5rem' }}>❌ Cancel</button>
           </div>
-        )}
-      </div>
-
-      {job.dateAdded && (
-        <p><strong>Date Added:</strong> {new Date(job.dateAdded).toLocaleDateString()}</p>
+        </>
+      ) : (
+        <>
+          <p><strong>Notes:</strong> {job.notes || "—"}</p>
+          <button onClick={() => setEditing(true)}>📝 Edit Notes</button>
+        </>
       )}
 
-      <button onClick={() => deleteJob(job.id)}>Delete</button>
-
-      {/* Optional status update */}
+      <button onClick={() => deleteJob(job.id)}>🗑️ Delete</button>
       <select
         value={job.status}
         onChange={(e) => updateStatus(job.id, e.target.value)}
@@ -61,6 +55,6 @@ const JobCard = ({ job, deleteJob, updateStatus }) => {
       </select>
     </div>
   );
-};
+}
 
 export default JobCard;
