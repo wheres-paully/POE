@@ -17,7 +17,7 @@ function JobForm({ addJob }) {
       company,
       status,
       type,
-      notes
+      notes,
       // ❌ Don't add dateAdded here – App.jsx does it
     };
 
